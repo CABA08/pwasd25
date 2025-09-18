@@ -1,8 +1,19 @@
+// sw.js
+
 self.addEventListener(
-    'fetch',
-    function(event){
-        if(/\.jpg$/.test(event.request.url)){
-            event.respondWith( fetch('unicorn.jpg') );
-        }
+  'fetch',
+  function (evento) {
+
+    console.log(evento.request.url);
+
+    if (/\.jpg$/.test(evento.request.url)) {
+      evento.respondWith(
+        fetch('unicorn.jpg')
+      );
+    } else if (/\.png$/.test(evento.request.url)) {
+      evento.respondWith(
+        fetch('utp.png')
+      );
     }
+  }
 );
